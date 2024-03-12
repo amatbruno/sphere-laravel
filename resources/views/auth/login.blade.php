@@ -12,30 +12,30 @@
             </div>
         @endif
 
-        <form  method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" class="h-[390px]">
             @csrf
-            <div class="flex justify-center py-5 ">
+            <div class="flex justify-center py-6">
                 <h1 class="text-2xl font-semibold">Acces to your <span class="text-red-700">Sphere</span> account</h1>
             </div>
 
             <div>
-                <x-label for="email" value="{{ __('Email') }}" class="text-black" />
+                <x-label style="color: black" for="email" value="{{ __('Email') }}" class="pt-5" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" class="text-black" />
+                <x-label style="color: black" for="password" value="{{ __('Password') }}"/>
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center text-black">
+                <label style="color: black" for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
                     <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-16">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}

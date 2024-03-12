@@ -11,6 +11,7 @@ use Laravel\Jetstream\Features;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
+
 class UserFactory extends Factory
 {
     /**
