@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
+        {{-- <x-slot name="logo">
             <x-authentication-card-logo />
-        </x-slot>
+        </x-slot> --}}
 
         <x-validation-errors class="mb-4" />
 
@@ -12,21 +12,24 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form  method="POST" action="{{ route('login') }}">
             @csrf
+            <div class="flex justify-center py-5 ">
+                <h1 class="text-2xl font-semibold">Acces to your <span class="text-red-700">Sphere</span> account</h1>
+            </div>
 
             <div>
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('Email') }}" class="text-black" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('Password') }}" class="text-black" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
+                <label for="remember_me" class="flex items-center text-black">
                     <x-checkbox id="remember_me" name="remember" />
                     <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>

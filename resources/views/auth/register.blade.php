@@ -8,24 +8,27 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
+            <div class="flex justify-center py-5 ">
+                <h1 class="text-2xl font-semibold">Create your <span class="text-red-700">Sphere</span> account</h1>
+            </div>
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
+                <x-label for="name" value="{{ __('Name') }}" class="text-black" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('Email') }}" class="text-black" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('Password') }}" class="text-black" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" class="text-black" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -35,7 +38,7 @@
                         <div class="flex items-center">
                             <x-checkbox name="terms" id="terms" required />
 
-                            <div class="ms-2">
+                            <div class="ms-2 text-black">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                         'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
                                         'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
