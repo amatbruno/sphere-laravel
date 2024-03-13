@@ -4,7 +4,7 @@
     <a href="#">
         <div>
             <img class="w-[520px] h-[330px] rounded-xl" 
-            src=" {{$post->image}} " alt="">
+            src=" {{ $post->getThumbnailImage() }} " alt="">
         </div>
     </a>
     <div class="mt-3">

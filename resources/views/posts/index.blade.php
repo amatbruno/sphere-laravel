@@ -8,16 +8,7 @@
             <livewire:search-box/>
         </div>
 
-        <div id="recommended-topics-box">
-            <h3 class="text-lg font-semibold text-white mb-3">Recommended Topics</h3>
-            <div class="topics flex flex-wrap justify-start">
-                <a href="#"
-                    class="bg-red-600 
-                                    text-white 
-                                    rounded-xl px-3 py-1 text-base">
-                    Tailwind</a>
-            </div>
-        </div>
+        @include('posts.partials.categories-box')
 
         <div class="pt-5 flex justify-center">
             <img src="{{ url('banner-homepage.png') }}" alt="banner-ad" class="lg:w-[250px] md:none w-[320px]">
