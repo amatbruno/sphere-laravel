@@ -129,14 +129,28 @@
 
 <body class="antialiased">
     <main id="background-red" class="bg-red-800 h-[420px]">
+        @auth()
+            @include('layouts.partials.header')
+        @else
         <header class="flex items-center gap-5 justify-end px-7 pt-4">
             <a class="bg-white p-2 px-5 rounded-lg font-semibold hover:bg-slate-200 transition-all"
                 href="{{ route('register') }}">Get Started</a>
             <a class="bg-white p-2 px-5 rounded-lg font-semibold hover:bg-slate-200 transition-all"
                 href="{{ route('login') }}">Sign In</a>
         </header>
+        @endauth
         <div class="max-w-7xl mx-auto p-4 lg:p-8">
-            <h1 class="text-8xl text-white font-bold text-center tracking-widest">SPHERE.</h1>
+            <div class="flex justify-center items-center">
+                <h1 class="text-8xl text-white font-bold text-center tracking-widest">SPHERE.</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="95" height="95" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M18.816 13.58c2.292 2.138 3.546 4 3.092 4.9c-.745 1.46 -5.783 -.259 -11.255 -3.838c-5.47 -3.579 -9.304 -7.664 -8.56 -9.123c.464 -.91 2.926 -.444 5.803 .805" />
+                    <path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                </svg>
+            </div>
+
             <p class="text-white text-2xl text-center mt-5">Discover. Inspire. Thrive.</p>
         </div>
         <div id="container-blur" class="h-[580px] m-auto mt-3 rounded-xl flex justify-center items-center gap-14">
@@ -160,10 +174,20 @@
         </div>
 
         <div class="w-full mt-32">
-            <h1 class="text-blue-950 w-fit p-4 bg-gray-300 text-5xl text-start font-bold ml-12 mb-12 rounded-xl">Featured Posts</h1>
+            <h1 class="text-white w-fit p-4 text-5xl text-start font-bold ml-12 mb-5">FEATURED POSTS</h1>
 
-            <div class="grid grid-cols-3 m-auto text-white text-center">
-                @foreach($featuredPosts as $post)
+            <div class="grid grid-cols-3 m-auto text-white text-center gap-5">
+                @foreach ($featuredPosts as $post)
+                    <x-posts.post-card :post="$post" />
+                @endforeach
+            </div>
+        </div>
+
+        <div class="w-full mt-32">
+            <h1 class="text-white w-fit p-4 text-5xl text-start font-bold ml-12 mb-5">LATEST POSTS</h1>
+
+            <div class="grid grid-cols-3 m-auto text-white text-center gap-5">
+                @foreach ($latestPosts as $post)
                     <x-posts.post-card :post="$post" />
                 @endforeach
             </div>

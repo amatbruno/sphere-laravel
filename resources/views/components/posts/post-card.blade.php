@@ -3,7 +3,7 @@
 <div class="m-auto">
     <a href="#">
         <div>
-            <img class="w-[550px] h-[330px] rounded-xl" 
+            <img class="w-[520px] h-[330px] rounded-xl" 
             src=" {{$post->image}} " alt="">
         </div>
     </a>
