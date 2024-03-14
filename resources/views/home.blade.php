@@ -174,8 +174,11 @@
         </div>
 
         <div class="w-full mt-32">
-            <h1 class="text-white w-fit p-4 text-5xl text-start font-bold ml-12 mb-5">FEATURED POSTS</h1>
-
+            <div class="flex w-[1300px] m-auto items-center justify-between">
+                <h1 class="text-white w-fit p-4 text-5xl text-start font-bold ml-12 mb-5">FEATURED POSTS</h1>
+                <a class="bg-red-700 text-white p-2 px-5 rounded-lg font-semibold hover:bg-slate-200 transition-all" href="{{ route('posts.index') }}">Get started</a>
+            </div>  
+            
             <div class="grid grid-cols-3 m-auto text-white text-center gap-5">
                 @foreach ($featuredPosts as $post)
                     <x-posts.post-card :post="$post" />

@@ -51,10 +51,4 @@ class PostList extends Component
     {
         return view('livewire.post-list');
     }
-
-    public function getThumbnailImage()
-    {
-        $isUrl = str_contains($this->image, 'http');
-        return ($isUrl) ? $this->image : Storage::disk('public')->url($this->image);
-    }
 }
