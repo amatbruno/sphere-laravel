@@ -29,7 +29,7 @@
                     <span class="text-white text-sm">{{ $post->getReadingTime() }} minute reading</span>
                 </div>
                 <div>
-                    <livewire:like-button :key="$post->id . now()" :$post/>
+                    <livewire:like-button :key="$post->id" :$post/>
                 </div>
             </div>
         </div>
