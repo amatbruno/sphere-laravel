@@ -14,6 +14,16 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'slug',
+        'image',
+        'body',
+        'published_at',
+        'featured',
+    ];
+
     protected $casts = [
         'published_at' => 'datetime',
     ];

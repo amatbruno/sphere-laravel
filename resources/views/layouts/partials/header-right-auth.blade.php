@@ -31,6 +31,10 @@
             <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
                 {{ __('Profile') }}
             </x-dropdown-link>
+            
+            <x-dropdown-link wire:navigate href="{{ url('/admin') }}">
+                {{ __('Admin Dashboard') }}
+            </x-dropdown-link>
 
             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                 <x-dropdown-link wire:navigate href="{{ route('api-tokens.index') }}">
