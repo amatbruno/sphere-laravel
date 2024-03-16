@@ -2,8 +2,9 @@
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="">
-                <img class="mw-150 h-64 mx-auto rounded-xl text-white" src="{{ $post->image }}" alt="thumbnail">
+            <a href="{{ route('posts.show', $post->slug) }}">
+                <img class="mw-150 h-64 mx-auto rounded-xl text-white" src="{{ $post->getThumbnailImage() }}"
+                    alt="thumbnail">
             </a>
         </div>
         <div class="col-span-8">
@@ -16,7 +17,7 @@
                 </div>
             </div>
             <h2 class="text-2xl font-bold text-white mt-2">
-                <a href="http://127.0.0.1:8000/blog/first%20post">
+                <a href="{{ route('posts.show', $post->slug) }}">
                     {{ $post->title }}
                 </a>
             </h2>
@@ -29,7 +30,7 @@
                     <span class="text-white text-sm">{{ $post->getReadingTime() }} minute reading</span>
                 </div>
                 <div>
-                    <livewire:like-button :key="$post->id" :$post/>
+                    <livewire:like-button :key="$post->id" :$post />
                 </div>
             </div>
         </div>

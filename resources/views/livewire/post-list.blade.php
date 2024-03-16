@@ -1,8 +1,8 @@
 <div class=" px-3 lg:px-7 py-6">
     <div class="flex justify-between items-center border-b border-gray-100">
         <div class="text-white text-xl">
-            @if($search)
-                Searched <em><strong>'{{$search}}'</strong></em>
+            @if ($search)
+                Searched <em><strong>'{{ $search }}'</strong></em>
             @endif
         </div>
         <div class="flex items-center gap-5 font-light border-b border-gray-700">
