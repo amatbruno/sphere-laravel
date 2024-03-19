@@ -29,10 +29,10 @@
         </div>
 
         <div class="flex items-center space-x-4 mt-10 mb-4">
-            <a href="#" class="bg-blue-400 text-white rounded-xl px-3 py-1 text-base">
-                Tailwind</a>
-            <a href="#" class="bg-red-400 text-white rounded-xl px-3 py-1 text-base">
-                Laravel</a>
+            @foreach (explode(',', $post->slug) as $slug)
+                <a href="#" class="bg-blue-400 text-white rounded-xl px-3 py-1 text-base">
+                    {{ $slug }}</a>
+            @endforeach
         </div>
 
         <livewire:post-comments :key="'comments' . $post->id" :$post />
