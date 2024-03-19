@@ -30,7 +30,7 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-arrow-up';
 
     public static function form(Form $form): Form
     {
@@ -70,7 +70,6 @@ class PostResource extends Resource
             ->columns([
                 ImageColumn::make('image'),
                 TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('slug')->sortable()->searchable(),
                 TextColumn::make('author.name')->sortable()->searchable(),
                 TextColumn::make('published_at')->date('Y-m-d')->sortable()->searchable(),
                 CheckboxColumn::make('featured'),

@@ -15,7 +15,7 @@ class PostController extends Controller
             [
                 'categories' => Category::whereHas('posts', function ($query) {
                     $query->published();
-                })->take(10)->get()
+                })->take(7)->get()
             ]
         );
     }
