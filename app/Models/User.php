@@ -3,14 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\Rules\Role;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
@@ -21,6 +24,8 @@ class User extends Authenticatable
     const ROLE_ADMIN = 'ADMIN';
     const ROLE_EDITOR = 'EDITOR';
     const ROLE_USER = 'USER';
+
+    const ROLE_DEFAULT = self::ROLE_USER;
 
     const ROLES = [
         self::ROLE_ADMIN => 'Admin',
@@ -70,6 +75,20 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->isAdmin() || $this->isEditor();
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isEditor()
+    {
+        return $this->role === self::ROLE_EDITOR;
+    }
 
     public function likes()
     {

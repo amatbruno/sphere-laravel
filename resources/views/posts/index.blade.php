@@ -4,7 +4,7 @@
             <livewire:post-list />
         </div>
         <div id="side-bar"
-            class="border-4 w-fit border-red-800 md:border-t-none col-span-4 md:col-span-1 px-3 md:px-6 space-y-10 py-6 pt-10 h-screen sticky top-0">
+            class="border-4 lg:border-l-4 w-fit border-red-800 md:border-t col-span-4 md:col-span-1 px-3 md:px-6 space-y-10 py-6 pt-10 h-screen sticky top-0">
             <livewire:search-box />
 
             @include('posts.partials.categories-box')
