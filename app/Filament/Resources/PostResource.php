@@ -48,11 +48,12 @@ class PostResource extends Resource
                                 $set('slug', Str::slug($state));
                             }),
                         TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
-                        RichEditor::make('body')->required()->fileAttachmentsDirectory('posts/image')->columnSpanFull()
+                        RichEditor::make('body')->required()->fileAttachmentsDirectory('posts/images')->columnSpanFull()
                     ]
                 )->columns(2),
                 Section::make('Meta')->schema(
                     [
+                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
                         DateTimePicker::make('published_at')->nullable(),
                         Checkbox::make('featured'),
                         Select::make('user_id')
