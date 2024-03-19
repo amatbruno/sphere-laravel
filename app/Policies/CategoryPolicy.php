@@ -63,4 +63,12 @@ class CategoryPolicy
     {
         return $user->isAdmin();
     }
+
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function deleteAny(User $user): bool
+    {
+        return $user->isAdmin();
+    }
 }

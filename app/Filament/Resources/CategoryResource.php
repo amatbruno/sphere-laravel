@@ -35,7 +35,12 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->searchable(),
             ])
             ->filters([
                 //

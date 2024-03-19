@@ -37,13 +37,21 @@ class PostPolicy
      */
     public function update(User $user, Post $post): bool
     {
-        return $user->isAdmin() || $user->isEditor();
+        return $user->isAdmin();
     }
 
     /**
      * Determine whether the user can delete the model.
      */
     public function delete(User $user, Post $post): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function deleteAny(User $user): bool
     {
         return $user->isAdmin();
     }
@@ -60,6 +68,22 @@ class PostPolicy
      * Determine whether the user can permanently delete the model.
      */
     public function forceDelete(User $user, Post $post): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     */
+    public function restoreAny(User $user): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     */
+    public function forceDeleteAny(User $user): bool
     {
         return $user->isAdmin();
     }

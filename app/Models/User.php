@@ -33,6 +33,11 @@ class User extends Authenticatable implements FilamentUser
         self::ROLE_USER => 'User',
     ];
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->can('view-admin', User::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -64,6 +69,7 @@ class User extends Authenticatable implements FilamentUser
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
     /**
@@ -74,11 +80,6 @@ class User extends Authenticatable implements FilamentUser
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function canAccessPanel(Panel $panel): bool
-    {
-        return $this->isAdmin() || $this->isEditor();
-    }
 
     public function isAdmin()
     {
